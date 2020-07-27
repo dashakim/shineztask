@@ -12,7 +12,7 @@ app.get("/", function (req, res) {
             <script src='https://article.omgcheckitout.com/articles/${id}.js'></script>
         </head>
         <body>
-            <div id='container'>work</div>
+            <div id='container'></div>
             <script type='text/javascript'>
                 window.shinez.id = window.shinez.id || '${id}';
                 window.shinez.rpp = window.shinez.rpp || ${rpp};
