@@ -28,6 +28,7 @@ const createElement = (block) => {
         <img src='${imageUrl}'>
         `;
   elementContainer.appendChild(createTextsBlock(texts));
+  elementContainer.classList.add("block");
   return elementContainer;
 };
 
@@ -37,6 +38,7 @@ const createTextsBlock = (texts) => {
     const textContainer = document.createElement("div");
     textContainer.innerHTML = text;
     textsContainer.appendChild(textContainer);
+    textsContainer.classList.add("text");
   }
   return textsContainer;
 };
@@ -46,13 +48,14 @@ const createPaging = (articleId, rpp, page, total) => {
   const isNotLast = total - rpp * page > 0;
 
   if (isNotFirst)
-    container.appendChild(pageLink(articleId, " <-- Previous ", rpp, page - 1));
+    container.appendChild(pageLink(articleId, "Previous", rpp, page - 1));
   if (isNotLast)
-    container.appendChild(pageLink(articleId, " Next --> ", rpp, page + 1));
+    container.appendChild(pageLink(articleId, "Next", rpp, page + 1));
 };
 
 const pageLink = (articleId, text, rpp, page) => {
   const linkContainer = document.createElement("a");
+  linkContainer.classList.add("button-link");
   linkContainer.setAttribute(
     "href",
     `/?id=${articleId}&rpp=${rpp}&page=${page}`

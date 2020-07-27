@@ -9,11 +9,16 @@ app.get("/", function (req, res) {
   let response = `
     <html>
         <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet'>
+            <link href='/style.css' rel='stylesheet'>
             <script src='https://article.omgcheckitout.com/articles/${id}.js'></script>
-        </head>
+            </head>
         <body>
             <div id='container'></div>
             <script type='text/javascript'>
+            
                 window.shinez.id = window.shinez.id || '${id}';
                 window.shinez.rpp = window.shinez.rpp || ${rpp};
                 window.shinez.page = window.shinez.page || ${page};

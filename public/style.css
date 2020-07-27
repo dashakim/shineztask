@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: rgb(235, 235, 235);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(37, 37, 37);
+}
+
+#container {
+  max-width: 1080px;
+  margin: 0 auto;
+  background-color: white;
+  overflow: hidden;
+}
+
+.block {
+  display: grid;
+  margin: 10px;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "header header"
+    "img  text";
+  grid-gap: 10px;
+}
+h3 {
+  justify-self: center;
+  align-self: center;
+  grid-area: header;
+}
+.text {
+  grid-area: text;
+  text-align: left;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  grid-area: img;
+}
+@media screen and (max-width: 920px) {
+  .block {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .block {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+.button-link {
+  display: inline-block;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  color: rgb(68, 68, 68);
+  text-decoration: none;
+  user-select: none;
+  outline: none;
+  padding: 10px;
+  margin: 0 0 10px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  background: rgb(245, 245, 245) linear-gradient(#f4f4f4, #f1f1f1);
+  transition: all 0.218s ease 0s;
+}
+.button-link:hover {
+  color: rgb(24, 24, 24);
+  border: 1px solid rgb(198, 198, 198);
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.button-link:active {
+  color: rgb(51, 51, 51);
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(238, 238, 238)
+    linear-gradient(rgb(238, 238, 238), rgb(224, 224, 224));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+}
