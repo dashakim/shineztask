@@ -19,20 +19,20 @@ body {
 }
 
 .block {
-  display: grid;
   margin: 10px;
-  grid-template-rows: auto auto auto;
-  grid-template-columns: auto auto;
+  display: grid;
   grid-template-areas:
     "header header"
     "img  text";
   grid-gap: 10px;
 }
+
 h3 {
   justify-self: center;
   align-self: center;
   grid-area: header;
 }
+
 .text {
   grid-area: text;
   text-align: left;
@@ -43,26 +43,26 @@ img {
   height: auto;
   grid-area: img;
 }
+
 @media screen and (max-width: 920px) {
   .block {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    grid-template-areas:
+      "header"
+      "img"
+      "text";
   }
 }
 
-@media screen and (max-width: 512px) {
+@media screen and (max-width: 512px) and (min-width: 320px) {
   .block {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
+    grid-template-areas:
+      "header"
+      "img"
+      "text";
   }
 }
 .button-link {
   display: inline-block;
-  font-family: arial, sans-serif;
   font-weight: bold;
   color: rgb(68, 68, 68);
   text-decoration: none;
