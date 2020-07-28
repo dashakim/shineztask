@@ -12,8 +12,14 @@ app.get("/", function (req, res) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href='/style.css' rel='stylesheet'>
+            <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+            <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+            
+            <!-- TODO: Use webpack instead -->
+            <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
             <script src='https://article.omgcheckitout.com/articles/${id}.js'></script>
-            </head>
+        </head>
         <body>
             <div id='container'></div>
             <script type='text/javascript'>
@@ -21,7 +27,7 @@ app.get("/", function (req, res) {
                 window.shinez.rpp = window.shinez.rpp || ${rpp};
                 window.shinez.page = window.shinez.page || ${page};
             </script>
-            <script src='/script.js'></script>
+            <script type="text/babel" src='/script.jsx'></script>            
         </body>
     </html>
     `;
