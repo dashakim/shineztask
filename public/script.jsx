@@ -12,18 +12,18 @@ const blocksToShow = (rpp, page, blocks) => {
   return blocks.slice(skip, skip + take);
 };
 
-const createElements = (id, rpp, page, blocks) => {
+const App = (id, rpp, page, blocks) => {
   const blockListToShow = blocksToShow(rpp, page, blocks);
 
   return (
     <div>
-      {blockListToShow.map((block) => createElement(block))}
-      {createPaging(id, rpp, page, blocks.length)}
+      {blockListToShow.map((block) => BlockComponent(block))}
+      {PagingComponent(id, rpp, page, blocks.length)}
     </div>
   );
 };
 
-const createElement = (block) => {
+const BlockComponent = (block) => {
   const title = block.title || "";
   const texts = block.text;
   const imageUrl = `https://img.omgcheckitout.com/articles/${id}/${block.image.name}`;
@@ -32,20 +32,20 @@ const createElement = (block) => {
     <div className="block">
       <h3>{title}</h3>
       <img src={imageUrl}></img>
-      {createTextsBlock(texts)}
+      {TextComponent(texts)}
     </div>
   );
 };
 
-const createTextsBlock = (texts) => (
-  <div className="text">{texts.map((text) => createParagraph(text))}</div>
+const TextComponent = (texts) => (
+  <div className="text">{texts.map((text) => ParagraphComponent(text))}</div>
 );
 
-const createParagraph = (html) => (
+const ParagraphComponent = (html) => (
   <div dangerouslySetInnerHTML={{ __html: html }} />
 );
 
-const createPaging = (articleId, rpp, page, total) => {
+const PagingComponent = (articleId, rpp, page, total) => {
   if (rpp == 0) return [];
 
   const isNotFirst = page !== 1;
@@ -66,6 +66,6 @@ const pageLink = (articleId, text, rpp, page) => (
 );
 
 ReactDOM.render(
-  createElements(id, rpp, page, article.blocks),
+  App(id, rpp, page, article.blocks),
   document.getElementById("container")
 );
